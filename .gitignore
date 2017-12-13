@@ -1,0 +1,6 @@
+Makefile*
+html
+.*.aux
+*.glob
+*.v.d
+*.vo
