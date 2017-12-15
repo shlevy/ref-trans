@@ -64,5 +64,5 @@ Class base (type : Type) (term : type → Type) :=
          relation to the original term.
        *)
      identify : ∀ {ty} (t : term ty), identifiable t →
-       { i : identifier ty & rewrites_equivalence (variable i) t }
+       { i : identifier ty & rewrites_equivalence (variable i) t };
   }.
