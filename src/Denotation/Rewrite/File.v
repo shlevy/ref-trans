@@ -24,5 +24,6 @@ Definition byte := Vector.t bit 8.
 
 Class has_files {type} {term} `(b : base type term) :=
   { file : type;
+    (** A file realises to its contents as a finite byte stream. *)
     realise : term file → list byte;
   }.
