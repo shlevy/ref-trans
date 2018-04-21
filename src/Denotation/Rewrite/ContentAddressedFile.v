@@ -26,10 +26,9 @@ Class content_addressed
         identifier that is a function only of the file contents' hash
         and the store in question.
       *)
-    add_file_identifiable : ∀ {bs}, identifiable (add_file bs);
     content_addressed_identifier : Vector.t byte hash_len
                                  → identifier file;
     add_file_identify_hashes : ∀ {bs},
-      projT1 (identify (add_file bs) add_file_identifiable) =
+      projT1 (identify (add_file bs) file_identifiable) =
       content_addressed_identifier (hash bs);
   }.

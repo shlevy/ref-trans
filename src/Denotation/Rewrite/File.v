@@ -26,4 +26,6 @@ Class has_files {type} {term} `(b : base type term) :=
   { file : type;
     (** A file realises to its contents as a finite byte stream. *)
     realise : term file → list byte;
+    (** Files can be identified. *)
+    file_identifiable : identifiable file;
   }.

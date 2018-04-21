@@ -48,21 +48,21 @@ Class base (type : Type) (term : type → Type) :=
 
     (** ** Identifying terms
 
-        Some terms can be identified, i.e. assigned a name to be used
-        in referring to the term with a variable. Operationally,
-        these are the commands that can actually cause a resource to
-        be realized into the store, with the identifiers being the
-        keys used for caching, sharing, etc. As such, ideal
-        identifiers would uniquely identify the term in question
-        (up to the relevant equivalence class for non-deterministic
+        Terms of some types can be identified, i.e. assigned a name to
+        be used in referring to the term with a variable.
+        Operationally, these are the commands that can actually cause
+        a resource to be realized into the store, with the identifiers
+        being the keys used for caching, sharing, etc. As such, ideal
+        identifiers would uniquely identify the term in question (up
+        to the relevant equivalence class for non-deterministic
         stores) and be relatively cheap to compute. In practice, this
         means crypographic hashes.
       *)
-     identifiable : ∀ {t}, term t → Type;
+     identifiable : type → Type;
      (** Given an identifiable term, we can get an identifier that,
          when used in a variable, is equivalent under the rewrite
          relation to the original term.
        *)
-     identify : ∀ {ty} (t : term ty), identifiable t →
+     identify : ∀ {ty} (t : term ty), identifiable ty →
        { i : identifier ty & rewrites_equivalence (variable i) t };
   }.
